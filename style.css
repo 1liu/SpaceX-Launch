@@ -1,55 +1,47 @@
+#map {
+  height: 100%;
+  width: 100%;
+}
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-    #map {
-      height: 100%;
-      width: 100%;
-    }
+header {
+  background-color: black;
+  color: white;
+}
 
+h1, h2, h3, h4, p {
+  text-align: center;
+  font-size: 1.5rem;
+}
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+p {
+  margin-bottom: 4px;
+}
 
-    header {
-      background-color: black;
-      color: white;
-    }
+.map-canvas {
+  height: 350px;
+}
 
-    h1, h2, h3, h4, p {
-      text-align: center;
-      font-size: 1.5rem;
-    }
-    p{
-      margin-bottom: 4px;
-    }
+tr.hover-row:hover {
+  border: 3px solid black;
+}
 
-    .map-canvas {
-      height: 350px;
-    }
+@media (max-device-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2, h3, h4, p {
+    font-size: 1rem;
+  }
+}
 
-    tr.hover-row:hover {
-      border: 3px solid black;
-    }
-
-    @media (max-device-width: 768px) {
-      h1 {
-        font-size: 1.5rem;
-      }
-      h2,h3,h4,p {
-        font-size: 1rem;
-      }
-    }
-
-    @media (max-device-width: 375px) {
-      h1,h2,h3,h4,p{
-        margin-bottom: 4px;
-      }
-      h1 {
-
-      }
-      h3 {
-
-      }
-    }
+@media (max-device-width: 375px) {
+  h1, h2, h3, h4, p {
+    margin-bottom: 4px;
+  }
+}
