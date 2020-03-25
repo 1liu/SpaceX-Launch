@@ -10,7 +10,7 @@ class UpcomingTable {
     } else {
       tbody.innerHTML = "";
       for (var launch of data) {
-        tbody.append(this.renderDataRow(launch));
+        tbody.append(this.renderDataRow(launch,this.launchClicked));
       }
     }
   }
@@ -20,14 +20,15 @@ class UpcomingTable {
 
   renderDataRow(data, launchClicked){
     var launchRowElement = document.createElement('tr');
+    launchRowElement.classList.add("hover-row");
     var launchNum = document.createElement('td');
     launchNum.textContent = data.flight_number;
     var missionName = document.createElement('td');
-    missionName = data.mission_name;
+    missionName.textContent = data.mission_name;
     launchRowElement.append(launchNum);
     launchRowElement.append(missionName);
     launchRowElement.addEventListener("click", function(){
-      console.log("Hi Clicked")
+      // console.log("Hi CLicked")
       launchClicked(data);
     })
     return launchRowElement;

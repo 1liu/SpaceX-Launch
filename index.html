@@ -5,8 +5,8 @@
   <title>Simple Map</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <header>
   <div class="container">
@@ -53,15 +53,15 @@
           <tbody id="upcoming-tbody"></tbody>
         </table>
       </div>
-      <div class="col">
+      <div class="mission-info col">
         <h4>Mission Information</h4>
         <table class="table">
           <thead>
-            <tr>
+            <!-- <tr>
               <th>Flight Number</th>
-              <th>Mission Name</th>
-            </tr>
+            </tr> -->
           </thead>
+          <tbody></tbody>
         </table>
       </div>
 
@@ -79,7 +79,7 @@
   <div class="row justify-content-left">
 
   </div>
-  <script>
+  <!-- <script>
     function initMap() {
       var myLatLng = { lat: 34.632093, lng: -120.610829 };
       var map = new google.maps.Map(document.getElementById('map'), {
@@ -90,18 +90,20 @@
       var marker = new google.maps.Marker({
         position: myLatLng,
         map: map,
-        title: 'Hello World!'
+        // title: 'Hello World!'
       });
     }
-  </script>
+  </script> -->
 
   <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEH1ffR0X6MKHvNEQBczgVtK-DcoH6LmI&callback=initMap"
-    async defer></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEH1ffR0X6MKHvNEQBczgVtK-DcoH6LmI&callback=initMap" async
+      defer></script> -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEH1ffR0X6MKHvNEQBczgVtK-DcoH6LmI"></script>
   <script src="components/time.js"></script>
   <script src="components/app.js"></script>
   <script src="components/upcoming-table.js"></script>
   <script src="components/page-header.js"></script>
+  <script src="components/mission-info.js"></script>
   <script src="components/google-map.js"></script>
   <script src="main.js"></script>
 </body>

@@ -22,6 +22,11 @@
       text-align: center;
     }
 
-    .map-canvas{
+    .map-canvas {
       height: 300px;
+    }
+
+
+    tr.hover-row:hover {
+      border: 3px solid black;
     }
