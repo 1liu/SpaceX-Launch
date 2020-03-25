@@ -28,7 +28,6 @@ class UpcomingTable {
     launchRowElement.append(launchNum);
     launchRowElement.append(missionName);
     launchRowElement.addEventListener("click", function(){
-      // console.log("Hi CLicked")
       launchClicked(data);
     })
     return launchRowElement;

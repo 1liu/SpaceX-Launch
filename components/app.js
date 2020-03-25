@@ -41,9 +41,6 @@ class App {
     this.pageHeader.updateNextLaunch(this.launchData[0]);
     this.missionInfo.updateInfo(this.launchData[0]);
     this.getPads(data[0].launch_site.site_id);
-
-    // this.weather.updateWeather(this.launchData[0]);
-    // this.googleMap.updateMap(this.launchData[1]);
   }
 
   getPastData() {
@@ -60,12 +57,7 @@ class App {
   }
   handleGetPastDataSuccess(data) {
     console.log(data);
-    // data.shift();
     this.pastData = data;
-    // this.upcomingTable.updateTable(this.pastData);
-    // this.pageHeader.updateNextLaunch(this.pastData[0]);
-    // this.missionInfo.updateInfo(this.pastData[0]);
-    // this.googleMap.updateMap(this.launchData[1]);
   }
 
   getPads(site_id){
@@ -74,10 +66,6 @@ class App {
       "url": "https://api.spacexdata.com/v3/launchpads/" + site_id,
       "method": "GET",
       "timeout": 0,
-      // "processData": false,
-      // "mimeType": "multipart/form-data",
-      // "contentType": false,
-      // "data": form,
       success: this.handleGetPadsSuccess,
       error: this.handleGetPadsError
     })
@@ -89,21 +77,12 @@ class App {
     console.log(site);
     var lat = site.location.latitude;
     var lon = site.location.longitude;
-    console.log("lat", lat);
-    console.log("lon", lon);
     this.getWeather(lat, lon);
-    // this.weather.updateWeather(lat, lon);
-    // this.googleMap.updateMap(lat, lon);
+    this.googleMap.updateMap(lat, lon);
 
   }
 
   getWeather(lat, lon) {
-    // var apiKey = "0d5dc97fa06aa4c3b2346c3b831447c6";
-    // var url = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon +"&appid=0d5dc97fa06aa4c3b2346c3b831447c6";
-    // $.ajax({
-    //   "url": url,
-    //   "method": "GET",
-    //   dataType: "json",
     $.ajax({
       type: "POST",
       url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
@@ -116,14 +95,7 @@ class App {
     console.error(error);
   }
   handleGetWeatherSuccess(data) {
-    // console.log(data);
     this.weather.updateWeather(data);
-    // data.shift();
-    // this.launchData = data;
-    // this.upcomingTable.updateTable(this.launchData);
-    // this.pageHeader.updateNextLaunch(this.launchData[0]);
-    // this.missionInfo.updateInfo(this.launchData[0]);
-    // this.googleMap.updateMap(this.launchData[1]);
   }
 
   launchClicked(data) {
@@ -131,8 +103,6 @@ class App {
     console.log(data);
     this.missionInfo.updateInfo(data);
     this.getPads(data.launch_site.site_id);
-
-    // this.googleMap.updateMap(data);
   }
 
   start(){
