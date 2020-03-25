@@ -5,8 +5,9 @@ class Weather {
 
   updateWeather(data) {
     console.log("Weather", data);
-    var tbody = this.weatherEl.querySelector("tbody");
 
+    var tbody = this.weatherEl.querySelector("tbody");
+    tbody.innerHTML = "";
     var weatherRowEl = document.createElement('tr');
     var weatherTd = document.createElement('td');
     weatherTd.textContent = "City Name:  " + data.name;
@@ -34,7 +35,11 @@ class Weather {
     tbody.append(weatherRowEl);
     var weatherRowEl = document.createElement('tr');
     var weatherTd = document.createElement('td');
-    weatherTd.textContent = "Visibility:  " + data.visibility + "m";
+    if (data.visibility > 16000) {
+      weatherTd.textContent = "Visibility: >16000m";
+    } else {
+      weatherTd.textContent = "Visibility:  " + data.visibility + "m";
+    }
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
     var weatherRowEl = document.createElement('tr');
