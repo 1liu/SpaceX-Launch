@@ -2,9 +2,11 @@
 <html>
 
 <head>
-  <title>Simple Map</title>
+  <title>SPACEX LAUNCH FORECAST</title>
   <meta name="viewport" content="initial-scale=1.0">
   <meta charset="utf-8">
+  <link rel="shortcut icon" href="https://www.spacex.com/sites/all/themes/spacex2012/favicon.ico"
+    type="image/vnd.microsoft.icon" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +15,7 @@
 
     <div class="row justify-content-center">
       <div class="col-12">
-        <h1>SPACEX LAUNCH INFO </h1>
+        <h1>SPACEX LAUNCH FORECAST</h1>
       </div>
     </div>
 
@@ -43,11 +45,11 @@
     <div class="row justify-content-center">
       <div class="col-md-4">
         <h4>Upcoming Launch</h4>
-        <table id="upcoming-table" class="table table-striped">
+        <table id="upcoming-table" class="table table-fixed table-striped">
           <thead>
             <tr>
-              <th class="">Flight Number</th>
-              <th class="">Mission Name</th>
+              <th scope="col" class="">Flight Number</th>
+              <th scope="col" class="">Mission Name</th>
             </tr>
           </thead>
           <tbody id="upcoming-tbody"></tbody>
@@ -69,8 +71,11 @@
         <div id="map"></div>
         <div id="weather">
           <h3>Launch Site Weather</h3>
+          <div class="d-flex justify-content-center">
+            <img id="weather-icon" src="" alt="weather-icon">
+          </div>
           <table class="table">
-            <thead></thead>
+            <!-- <thead></thead> -->
             <tbody></tbody>
           </table>
         </div>
@@ -80,7 +85,6 @@
   <div class="row justify-content-left">
 
   </div>
-
 
   <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=" APIKey""></script>
