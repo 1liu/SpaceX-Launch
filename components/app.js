@@ -1,6 +1,7 @@
 class App {
   constructor(upcomingTable, pageHeader, missionInfo, googleMap){
     this.launchData = null;
+    this.pastData = null;
     this.site = null;
     this.upcomingTable = upcomingTable;
     this.pageHeader = pageHeader;
@@ -37,6 +38,29 @@ class App {
     this.missionInfo.updateInfo(this.launchData[0]);
     // this.googleMap.updateMap(this.launchData[1]);
   }
+
+  getPastData() {
+    $.ajax({
+      "url": "https://api.spacexdata.com/v3/launches/past",
+      "method": "GET",
+      "timeout": 0,
+      success: this.handleGetPastDataSuccess,
+      error: this.handleGetPastDataError
+    })
+  }
+  handleGetPastDataError(error) {
+    console.error(error);
+  }
+  handleGetPastDataSuccess(data) {
+    console.log(data);
+    // data.shift();
+    this.pastData = data;
+    // this.upcomingTable.updateTable(this.pastData);
+    // this.pageHeader.updateNextLaunch(this.pastData[0]);
+    // this.missionInfo.updateInfo(this.pastData[0]);
+    // this.googleMap.updateMap(this.launchData[1]);
+  }
+
   getPads(site_id){
     // var form = new FormData();
     $.ajax({

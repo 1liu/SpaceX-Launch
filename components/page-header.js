@@ -6,7 +6,8 @@ class PageHeader{
   updateNextLaunch(nextLaunch) {
     console.log(nextLaunch);
     var launchTime = this.headerElement.querySelector("#next-launch-time");
-    launchTime.textContent = nextLaunch.launch_date_utc;
+    var nextLaunchDate = nextLaunch.launch_date_local.slice(0,10);
+    launchTime.textContent = nextLaunchDate;
     var localLaunchTime = nextLaunch.launch_date_local;
     var countDownEl = this.headerElement.querySelector("#count-down");
 

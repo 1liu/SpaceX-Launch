@@ -24,6 +24,11 @@ class MissionInfo {
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
     missionInfoTd = document.createElement('td');
+    missionInfoTd.textContent = "Launch Time(Local):  " + data.launch_date_local;
+    missionRowEl.append(missionInfoTd);
+    tbody.append(missionRowEl);
+    missionRowEl = document.createElement('tr');
+    missionInfoTd = document.createElement('td');
     missionInfoTd.textContent = "Launch Site:  " + data.launch_site.site_name_long + "(" + data.launch_site.site_name + ")";
     missionRowEl.append(missionInfoTd);
     tbody.append(missionRowEl);
@@ -49,7 +54,11 @@ class MissionInfo {
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
     missionInfoTd = document.createElement('td');
+    if ((data.rocket.second_stage.payloads[0].payload_mass_kg)!=null){
     missionInfoTd.textContent = "Payload Mass(kg):  " + data.rocket.second_stage.payloads[0].payload_mass_kg;
+    }else{
+      missionInfoTd.textContent = "Payload Mass(kg): Not Available"
+    }
     missionRowEl.append(missionInfoTd);
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
