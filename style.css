@@ -19,13 +19,14 @@
 
     h1, h2, h3, h4, p {
       text-align: center;
+      font-size: 1.5rem;
     }
     p{
       margin-bottom: 4px;
     }
 
     .map-canvas {
-      height: 300px;
+      height: 350px;
     }
 
     tr.hover-row:hover {
@@ -36,13 +37,13 @@
       h1 {
         font-size: 1.5rem;
       }
-      h3 {
+      h2,h3,h4,p {
         font-size: 1rem;
       }
     }
 
     @media (max-device-width: 375px) {
-      h1,h2,h3,p{
+      h1,h2,h3,h4,p{
         margin-bottom: 4px;
       }
       h1 {
