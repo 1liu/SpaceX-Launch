@@ -5,7 +5,13 @@ class Weather {
 
   updateWeather(data) {
     console.log("Weather", data);
+    var iconId = data.weather[0].icon;
+    var iconUrl = "http://openweathermap.org/img/wn/"+iconId+"@2x.png";
 
+    // var icon = document.createElement("img");
+    // icon.setAttribute("url", iconUrl);
+    var weatherIcon = this.weatherEl.querySelector("#weather-icon");
+    weatherIcon.setAttribute("src", iconUrl);
     var tbody = this.weatherEl.querySelector("tbody");
     tbody.innerHTML = "";
     var weatherRowEl = document.createElement('tr');
