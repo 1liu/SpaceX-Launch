@@ -20,8 +20,9 @@ class GoogleMap {
   initMap() {
     var myLatLng = { lat: 28.5618571, lng: -80.577366 };
     this.map = new google.maps.Map(this.mapElement.querySelector('#map'), {
-      zoom: 10,
-      center: myLatLng
+      zoom: 14,
+      center: myLatLng,
+      mapTypeId: 'satellite'
     });
 
 
