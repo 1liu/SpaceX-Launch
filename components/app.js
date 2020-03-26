@@ -61,7 +61,6 @@ class App {
   }
 
   getPads(site_id){
-    // var form = new FormData();
     $.ajax({
       "url": "https://api.spacexdata.com/v3/launchpads/" + site_id,
       "method": "GET",

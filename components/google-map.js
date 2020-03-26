@@ -25,10 +25,8 @@ class GoogleMap {
       mapTypeId: 'satellite'
     });
 
-
-
   }
-  // Adds a marker to the map and push to the array.
+
   addMarker(location) {
     this.marker = new google.maps.Marker({
       position: location,
@@ -36,13 +34,12 @@ class GoogleMap {
     });
   }
 
-  // Removes the markers from the map, but keeps them in the array.
+
   clearMarkers() {
     if (this.marker != null) {
       this.marker.setMap(null);
       this.marker = null;
     }
   }
-
 
 }
