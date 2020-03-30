@@ -21,7 +21,6 @@ header {
   display: block;
 }
 
-
 .table-fixed tr, .table-fixed td {
   display: block;
 }
@@ -48,10 +47,22 @@ p {
   margin-bottom: 4px;
 }
 
-.span1 {
+span {
+  font-weight: 600;
+}
+
+div.mission-photo {
   height: 300px;
-  overflow-y: auto;
-  width: 100%;
+  width: 300px;
+}
+
+img {
+  width: 300px;
+}
+
+.misission-photo-title {
+  font-size: 1rem;
+  line-height: 1rem;
 }
 
 .map-canvas {
@@ -86,5 +97,11 @@ tr.hover-row:hover {
 @media (max-device-height: 812px) {
   #upcoming-tbody {
     height: 200px;
+  }
+}
+
+@media (min-device-width: 1000px) and (max-device-height: 812px) {
+  #upcoming-tbody {
+    height: 700px;
   }
 }
