@@ -12,6 +12,9 @@ class App {
     this.getData = this.getData.bind(this);
     this.handleGetDataError = this.handleGetDataError.bind(this);
     this.handleGetDataSuccess = this.handleGetDataSuccess.bind(this);
+    this.getPastData = this.getPastData.bind(this);
+    this.handleGetPastDataError = this.handleGetPastDataError.bind(this);
+    this.handleGetPastDataSuccess = this.handleGetPastDataSuccess.bind(this);
     this.launchClicked = this.launchClicked.bind(this);
     this.getPads = this.getPads.bind(this);
     this.handleGetPadsError = this.handleGetPadsError.bind(this);
@@ -34,7 +37,7 @@ class App {
     console.error(error);
   }
   handleGetDataSuccess(data) {
-    // console.log(data);
+    console.log(data);
     data.shift();
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
@@ -56,6 +59,7 @@ class App {
     console.error(error);
   }
   handleGetPastDataSuccess(data) {
+    console.log("Get past data successfully")
     console.log(data);
     this.pastData = data;
   }
@@ -107,6 +111,10 @@ class App {
   start(){
     this.upcomingTable.onLaunchClick(this.launchClicked);
     this.getData();
-    this.googleMap.initMap()
+    this.googleMap.initMap();
+    var pastLaunchMode = document.querySelector("#past-launch-mode");
+    pastLaunchMode.addEventListener("click", this.getPastData);
+    var upcomingLaunchMode = document.querySelector("#upcoming-launch-mode");
+    upcomingLaunchMode.addEventListener("click", this.getData);
   }
 }
