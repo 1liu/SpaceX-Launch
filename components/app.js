@@ -38,7 +38,7 @@ class App {
   }
   handleGetDataSuccess(data) {
     console.log(data);
-    data.shift();
+    this.lastLaunch = data.shift();
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
     this.pageHeader.updateNextLaunch(this.launchData[0]);
@@ -59,9 +59,11 @@ class App {
     console.error(error);
   }
   handleGetPastDataSuccess(data) {
-    console.log("Get past data successfully")
-    console.log(data);
-    this.pastData = data;
+    // console.log("Get past data successfully")
+    // console.log(data);
+    data.push(this.lastLaunch);
+    this.pastData = data.reverse();
+    this.upcomingTable.updateTable(this.pastData);
   }
 
   getPads(site_id){
