@@ -59,8 +59,6 @@ class App {
     console.error(error);
   }
   handleGetPastDataSuccess(data) {
-    // console.log("Get past data successfully")
-    // console.log(data);
     data.push(this.lastLaunch);
     this.pastData = data.reverse();
     this.upcomingTable.updateTable(this.pastData);
@@ -79,7 +77,6 @@ class App {
     console.error(error);
   }
   handleGetPadsSuccess(site){
-    console.log(site);
     var lat = site.location.latitude;
     var lon = site.location.longitude;
     this.getWeather(lat, lon);
@@ -90,22 +87,20 @@ class App {
   getWeather(lat, lon) {
     $.ajax({
       type: "POST",
-      url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
+      url: "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
       dataType: "json",
       success: this.handleGetWeatherSuccess,
       error: this.handleGetWeatherError
     })
   }
   handleGetWeatherError(error) {
-    console.error(error);
+    console.log(error);
   }
   handleGetWeatherSuccess(data) {
     this.weather.updateWeather(data);
   }
 
   launchClicked(data) {
-    console.log("Clicked");
-    console.log(data);
     this.missionInfo.updateInfo(data);
     this.getPads(data.launch_site.site_id);
   }
