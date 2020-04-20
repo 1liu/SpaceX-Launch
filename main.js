@@ -1,4 +1,4 @@
-var Google_API_KEY = "";
+var Google_API_KEY = "AIzaSyDpQNN2KmBojfw85PlkW445vN06bJsXor8";
 
 var google_api_url = "https://maps.googleapis.com/maps/api/js?key=";
 var upcomingTable = new UpcomingTable(document.querySelector("#upcoming-table"));
