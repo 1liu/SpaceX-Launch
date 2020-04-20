@@ -18,11 +18,11 @@ header {
   height: 800px;
   width: 100%;
   overflow-y: scroll;
-  display: block;
 }
 
-.table-fixed tr, .table-fixed td {
+.table-fixed tr{
   display: block;
+  height: 50px;
 }
 
 .table-fixed tbody td, .table-fixed thead>tr>th {
