@@ -98,8 +98,6 @@ class App {
   }
 
   launchClicked(data) {
-    console.log("Clicked");
-    console.log(data);
     this.missionInfo.updateInfo(data);
     this.getPads(data.launch_site.site_id);
   }

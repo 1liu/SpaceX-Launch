@@ -6,8 +6,6 @@ class GoogleMap {
   }
 
   updateMap(latt, long) {
-    console.log("lat", latt);
-    console.log("lon", long);
     const myLatLng = {
       lat: latt,
       lng: long
