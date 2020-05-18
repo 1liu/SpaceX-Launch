@@ -4,41 +4,40 @@ class Weather {
   }
 
   updateWeather(data) {
-    console.log("Weather", data);
-    var iconId = data.weather[0].icon;
-    var iconUrl = "https://openweathermap.org/img/wn/"+iconId+"@2x.png";
+    const iconId = data.weather[0].icon;
+    const iconUrl = "http://openweathermap.org/img/wn/" + iconId + "@2x.png";
 
-    var weatherIcon = this.weatherEl.querySelector("#weather-icon");
+    const weatherIcon = this.weatherEl.querySelector("#weather-icon");
     weatherIcon.setAttribute("src", iconUrl);
-    var tbody = this.weatherEl.querySelector("tbody");
+    let tbody = this.weatherEl.querySelector("tbody");
     tbody.innerHTML = "";
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>City Name:  </span>" + data.name;
+    let weatherRowEl = document.createElement('tr');
+    let weatherTd = document.createElement('td');
+    weatherTd.textContent = "City Name:  " + data.name;
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Cloud:  </span>" + data.weather[0].description;
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Cloud:  " + data.weather[0].description;
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Temperature:  </span>" + data.main.temp + "C";
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Temperature:  " + data.main.temp + "C";
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Pressure:  </span>" + data.main.pressure + " millibars";
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Pressure:  " + data.main.pressure + " millibars";
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Humidity:  </span>" + data.main.humidity + "%";
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Humidity:  " + data.main.humidity + "%";
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
     if (data.visibility > 16000) {
       weatherTd.innerHTML = "<span>Visibility: </span>>16000m";
     } else {
@@ -46,14 +45,14 @@ class Weather {
     }
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Wind Speed:  </span>" + data.wind.speed + "m/s";
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Wind Speed:  " + data.wind.speed + "m/s";
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
-    var weatherRowEl = document.createElement('tr');
-    var weatherTd = document.createElement('td');
-    weatherTd.innerHTML = "<span>Wind Direction:  </span>" + data.wind.deg + "deg";
+    weatherRowEl = document.createElement('tr');
+    weatherTd = document.createElement('td');
+    weatherTd.textContent = "Wind Direction:  " + data.wind.deg + "deg";
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);
   }

@@ -6,7 +6,8 @@ class GoogleMap {
   }
 
   updateMap(latt, long) {
-    var myLatLng = {
+
+    const myLatLng = {
       lat: latt,
       lng: long
     };
@@ -16,7 +17,7 @@ class GoogleMap {
   }
 
   initMap() {
-    var myLatLng = { lat: 28.5618571, lng: -80.577366 };
+    const myLatLng = { lat: 28.5618571, lng: -80.577366 };
     this.map = new google.maps.Map(this.mapElement.querySelector('#map'), {
       zoom: 14,
       center: myLatLng,
