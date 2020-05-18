@@ -26,6 +26,7 @@ class UpcomingTable {
     launchNum.textContent = data.flight_number;
     var missionName = document.createElement('td');
     missionName.classList.add("col-10");
+    missionName.setAttribute('noWrap', true);
     missionName.textContent = data.mission_name;
     launchRowElement.append(launchNum);
     launchRowElement.append(missionName);
