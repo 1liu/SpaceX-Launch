@@ -1,4 +1,4 @@
-const Google_API_KEY = "";
+const Google_API_KEY = "AIzaSyDpQNN2KmBojfw85PlkW445vN06bJsXor8";
 
 const google_api_url = "https://maps.googleapis.com/maps/api/js?key=";
 const upcomingTable = new UpcomingTable(document.querySelector("#upcoming-table"));

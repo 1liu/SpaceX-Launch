@@ -39,9 +39,9 @@ class Weather {
     weatherRowEl = document.createElement('tr');
     weatherTd = document.createElement('td');
     if (data.visibility > 16000) {
-      weatherTd.textContent = "Visibility: >16000m";
+      weatherTd.innerHTML = "<span>Visibility: </span>>16000m";
     } else {
-      weatherTd.textContent = "Visibility:  " + data.visibility + "m";
+      weatherTd.innerHTML = "<span>Visibility:  </span>" + data.visibility + "m";
     }
     weatherRowEl.append(weatherTd);
     tbody.append(weatherRowEl);

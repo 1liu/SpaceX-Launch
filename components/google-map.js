@@ -6,6 +6,7 @@ class GoogleMap {
   }
 
   updateMap(latt, long) {
+
     const myLatLng = {
       lat: latt,
       lng: long

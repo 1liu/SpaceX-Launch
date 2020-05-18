@@ -12,6 +12,9 @@ class App {
     this.getData = this.getData.bind(this);
     this.handleGetDataError = this.handleGetDataError.bind(this);
     this.handleGetDataSuccess = this.handleGetDataSuccess.bind(this);
+    this.getPastData = this.getPastData.bind(this);
+    this.handleGetPastDataError = this.handleGetPastDataError.bind(this);
+    this.handleGetPastDataSuccess = this.handleGetPastDataSuccess.bind(this);
     this.launchClicked = this.launchClicked.bind(this);
     this.getPads = this.getPads.bind(this);
     this.handleGetPadsError = this.handleGetPadsError.bind(this);
@@ -34,8 +37,7 @@ class App {
     console.error(error);
   }
   handleGetDataSuccess(data) {
-    // console.log(data);
-    data.shift();
+    console.log(data);
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
     this.pageHeader.updateNextLaunch(this.launchData[0]);
@@ -56,8 +58,8 @@ class App {
     console.error(error);
   }
   handleGetPastDataSuccess(data) {
-    console.log(data);
-    this.pastData = data;
+    this.pastData = data.reverse();
+    this.upcomingTable.updateTable(this.pastData);
   }
 
   getPads(site_id){
@@ -73,7 +75,6 @@ class App {
     console.error(error);
   }
   handleGetPadsSuccess(site){
-    console.log(site);
     var lat = site.location.latitude;
     var lon = site.location.longitude;
     this.getWeather(lat, lon);
@@ -84,14 +85,14 @@ class App {
   getWeather(lat, lon) {
     $.ajax({
       type: "POST",
-      url: "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
+      url: "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
       dataType: "json",
       success: this.handleGetWeatherSuccess,
       error: this.handleGetWeatherError
     })
   }
   handleGetWeatherError(error) {
-    console.error(error);
+    console.log(error);
   }
   handleGetWeatherSuccess(data) {
     this.weather.updateWeather(data);
@@ -105,6 +106,10 @@ class App {
   start(){
     this.upcomingTable.onLaunchClick(this.launchClicked);
     this.getData();
-    this.googleMap.initMap()
+    this.googleMap.initMap();
+    var pastLaunchMode = document.querySelector("#past-launch-mode");
+    pastLaunchMode.addEventListener("click", this.getPastData);
+    var upcomingLaunchMode = document.querySelector("#upcoming-launch-mode");
+    upcomingLaunchMode.addEventListener("click", this.getData);
   }
 }
