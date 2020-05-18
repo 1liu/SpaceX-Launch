@@ -22,12 +22,12 @@ class MissionInfo {
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
     missionInfoTd = document.createElement('td');
-    missionInfoTd.textContent = "Launch Time(UTC):  " + new Date(data.launch_date_utc).toUTCString();
+    missionInfoTd.innerHTML = "<span>Launch Time(UTC):  </span>" + new Date(data.launch_date_utc).toUTCString();
     missionRowEl.append(missionInfoTd);
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
     missionInfoTd = document.createElement('td');
-    missionInfoTd.textContent = "Launch Time(Local):  " + new Date(data.launch_date_local).toString();
+    missionInfoTd.innerHTML = "<span>Launch Time(Local):  </span>" + new Date(data.launch_date_local).toString();
     missionRowEl.append(missionInfoTd);
     tbody.append(missionRowEl);
     missionRowEl = document.createElement('tr');
