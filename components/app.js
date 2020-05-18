@@ -37,7 +37,6 @@ class App {
     console.error(error);
   }
   handleGetDataSuccess(data) {
-    console.log(data);
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
     this.pageHeader.updateNextLaunch(this.launchData[0]);
