@@ -27,7 +27,11 @@ header {
   height: 900px;
 }
 
-.fixed_header ::-webkit-scrollbar {
+.fixed_header::-webkit-scrollbar {
+  display: none;
+}
+
+.fixed_header::-webkit-scrollbar {
   display: none;
 }
 
