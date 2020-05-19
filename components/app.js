@@ -37,7 +37,6 @@ class App {
     console.error(error);
   }
   handleGetDataSuccess(data) {
-    console.log(data);
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
     this.pageHeader.updateNextLaunch(this.launchData[0]);
@@ -75,8 +74,8 @@ class App {
     console.error(error);
   }
   handleGetPadsSuccess(site){
-    var lat = site.location.latitude;
-    var lon = site.location.longitude;
+    const lat = site.location.latitude;
+    const lon = site.location.longitude;
     this.getWeather(lat, lon);
     this.googleMap.updateMap(lat, lon);
 
@@ -107,9 +106,9 @@ class App {
     this.upcomingTable.onLaunchClick(this.launchClicked);
     this.getData();
     this.googleMap.initMap();
-    var pastLaunchMode = document.querySelector("#past-launch-mode");
+    const pastLaunchMode = document.querySelector("#past-launch-mode");
     pastLaunchMode.addEventListener("click", this.getPastData);
-    var upcomingLaunchMode = document.querySelector("#upcoming-launch-mode");
+    const upcomingLaunchMode = document.querySelector("#upcoming-launch-mode");
     upcomingLaunchMode.addEventListener("click", this.getData);
   }
 }
