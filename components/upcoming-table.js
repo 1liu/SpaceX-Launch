@@ -22,10 +22,10 @@ class UpcomingTable {
     let launchRowElement = document.createElement('tr');
     launchRowElement.classList.add("hover-row");
     const launchNum = document.createElement('td');
-    launchNum.classList.add("col-2");
+    launchNum.classList.add("col-3");
     launchNum.textContent = data.flight_number;
     const missionName = document.createElement('td');
-    missionName.classList.add("col-10");
+    missionName.classList.add("col-9");
     missionName.setAttribute('noWrap', true);
     missionName.textContent = data.mission_name;
     launchRowElement.append(launchNum);
