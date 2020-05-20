@@ -1,5 +1,5 @@
 class App {
-  constructor(upcomingTable, pageHeader, missionInfo, googleMap, weather){
+  constructor(upcomingTable, pageHeader, missionInfo, googleMap, weather) {
     this.launchData = null;
     this.pastData = null;
     this.site = null;
@@ -24,18 +24,20 @@ class App {
     this.handleGetWeatherSuccess = this.handleGetWeatherSuccess.bind(this);
   }
 
-  getData(){
+  getData() {
     $.ajax({
-      "url": "https://api.spacexdata.com/v3/launches/upcoming",
-      "method": "GET",
-      "timeout": 0,
+      url: '/api/upcoming',
+      method: 'GET',
+      timeout: 0,
       success: this.handleGetDataSuccess,
       error: this.handleGetDataError
-    })
+    });
   }
+
   handleGetDataError(error) {
     console.error(error);
   }
+
   handleGetDataSuccess(data) {
     this.launchData = data;
     this.upcomingTable.updateTable(this.launchData);
@@ -46,34 +48,42 @@ class App {
 
   getPastData() {
     $.ajax({
-      "url": "https://api.spacexdata.com/v3/launches/past",
-      "method": "GET",
-      "timeout": 0,
+      url: '/api/past',
+      method: 'GET',
+      timeout: 0,
       success: this.handleGetPastDataSuccess,
       error: this.handleGetPastDataError
-    })
+    });
   }
+
   handleGetPastDataError(error) {
     console.error(error);
   }
+
   handleGetPastDataSuccess(data) {
     this.pastData = data.reverse();
     this.upcomingTable.updateTable(this.pastData);
   }
 
-  getPads(site_id){
+  getPads(site_id) {
     $.ajax({
-      "url": "https://api.spacexdata.com/v3/launchpads/" + site_id,
-      "method": "GET",
-      "timeout": 0,
+      url: '/api/site/',
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      data: JSON.stringify({ site_id: site_id }),
+      timeout: 0,
       success: this.handleGetPadsSuccess,
       error: this.handleGetPadsError
-    })
+    });
   }
-  handleGetPadsError(error){
+
+  handleGetPadsError(error) {
     console.error(error);
   }
-  handleGetPadsSuccess(site){
+
+  handleGetPadsSuccess(site) {
     const lat = site.location.latitude;
     const lon = site.location.longitude;
     this.getWeather(lat, lon);
@@ -83,16 +93,21 @@ class App {
 
   getWeather(lat, lon) {
     $.ajax({
-      type: "POST",
-      url: "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lon+"&appid=de6d52c2ebb7b1398526329875a49c57&units=metric",
-      dataType: "json",
+      method: 'POST',
+      url: '/api/weather',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      data: JSON.stringify({ lat: lat, lon: lon }),
       success: this.handleGetWeatherSuccess,
       error: this.handleGetWeatherError
-    })
+    });
   }
+
   handleGetWeatherError(error) {
     console.log(error);
   }
+
   handleGetWeatherSuccess(data) {
     this.weather.updateWeather(data);
   }
@@ -102,13 +117,15 @@ class App {
     this.getPads(data.launch_site.site_id);
   }
 
-  start(){
+  start() {
     this.upcomingTable.onLaunchClick(this.launchClicked);
     this.getData();
     this.googleMap.initMap();
-    const pastLaunchMode = document.querySelector("#past-launch-mode");
-    pastLaunchMode.addEventListener("click", this.getPastData);
-    const upcomingLaunchMode = document.querySelector("#upcoming-launch-mode");
-    upcomingLaunchMode.addEventListener("click", this.getData);
+    const pastLaunchMode = document.querySelector('#past-launch-mode');
+    pastLaunchMode.addEventListener('click', this.getPastData);
+    const upcomingLaunchMode = document.querySelector('#upcoming-launch-mode');
+    upcomingLaunchMode.addEventListener('click', this.getData);
   }
 }
+
+module.exports = App;

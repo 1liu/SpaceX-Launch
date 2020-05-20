@@ -33,7 +33,6 @@ class GoogleMap {
     });
   }
 
-
   clearMarkers() {
     if (this.marker != null) {
       this.marker.setMap(null);
@@ -42,3 +41,5 @@ class GoogleMap {
   }
 
 }
+
+module.exports = GoogleMap;
