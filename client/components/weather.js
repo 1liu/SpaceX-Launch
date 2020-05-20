@@ -4,7 +4,6 @@ class Weather {
   }
 
   updateWeather(data) {
-    console.log('test weather');
     const iconId = data.weather[0].icon;
     const iconUrl = 'http://openweathermap.org/img/wn/' + iconId + '@2x.png';
 
