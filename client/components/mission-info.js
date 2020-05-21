@@ -4,6 +4,11 @@ class MissionInfo {
     this.data = null;
   }
 
+  removeImg() {
+    var img = this.missionElement.querySelector('#mission-photo-id');
+    img.setAttribute('src', null);
+  }
+
   updateInfo(data) {
     this.data = data;
     var tbody = this.missionElement.querySelector('tbody');
@@ -69,7 +74,7 @@ class MissionInfo {
     missionInfoTd.innerHTML = '<span>Orbit:  </span>' + data.rocket.second_stage.payloads[0].orbit;
     missionRowEl.append(missionInfoTd);
     tbody.append(missionRowEl);
-    if (this.data.links.flickr_images.length != 0) {
+    if (this.data.links.flickr_images.length !== 0) {
       var img = this.missionElement.querySelector('#mission-photo-id');
       img.setAttribute('src', this.data.links.flickr_images[0]);
       var parentEl = img.parentElement;

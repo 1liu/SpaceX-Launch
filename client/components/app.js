@@ -26,6 +26,7 @@ class App {
 
   getData() {
     this.upcomingTable.loading();
+    this.missionInfo.removeImg();
     $.ajax({
       url: '/api/upcoming',
       method: 'GET',
