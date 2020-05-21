@@ -20,6 +20,8 @@ A JavaScript application for space enthusiast to check all SpaceX launch schedul
 
 Link: https://spacex-launch.yizhou-liu.com/
 
+![demo](images/demo.jpg)
+
 ## Features
 
 - Users can view all scheduled SpaceX missions
