@@ -25,6 +25,7 @@ class App {
   }
 
   getData() {
+    this.upcomingTable.loading();
     $.ajax({
       url: '/api/upcoming',
       method: 'GET',
@@ -47,10 +48,10 @@ class App {
   }
 
   getPastData() {
+    this.upcomingTable.loading();
     $.ajax({
       url: '/api/past',
       method: 'GET',
-      timeout: 0,
       success: this.handleGetPastDataSuccess,
       error: this.handleGetPastDataError
     });
