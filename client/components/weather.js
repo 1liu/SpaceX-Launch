@@ -5,7 +5,7 @@ class Weather {
 
   updateWeather(data) {
     const iconId = data.weather[0].icon;
-    const iconUrl = 'http://openweathermap.org/img/wn/' + iconId + '@2x.png';
+    const iconUrl = 'https://openweathermap.org/img/wn/' + iconId + '@2x.png';
 
     const weatherIcon = this.weatherEl.querySelector('#weather-icon');
     weatherIcon.setAttribute('src', iconUrl);
