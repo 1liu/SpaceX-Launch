@@ -15,6 +15,12 @@ class UpcomingTable {
     }
   }
 
+  loading() {
+    const tbody = this.tableElement.querySelector('#upcoming-tbody');
+    tbody.innerHTML = 'Loading';
+
+  }
+
   onLaunchClick(launchClicked) {
     this.launchClicked = launchClicked;
   }
