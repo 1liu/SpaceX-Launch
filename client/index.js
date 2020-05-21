@@ -1,4 +1,3 @@
-const Google_API_KEY = 'AIzaSyDpQNN2KmBojfw85PlkW445vN06bJsXor8';
 
 const UpcomingTable = require('./components/upcoming-table');
 const GoogleMap = require('./components/google-map');
@@ -6,8 +5,6 @@ const PageHeader = require('./components/page-header');
 const MissionInfo = require('./components/mission-info');
 const Weather = require('./components/weather');
 const App = require('./components/app');
-
-const google_api_url = 'https://maps.googleapis.com/maps/api/js?key=';
 
 // eslint-disable-next-line no-unused-vars
 function init() {

@@ -43,7 +43,7 @@ app.post('/api/site', (req, res, next) => {
 
 app.post('/api/weather', (req, res, next) => {
   const request = req.body;
-  const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + request.lat + '&lon=' + request.lon + '&appid=de6d52c2ebb7b1398526329875a49c57&units=metric';
+  const url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + request.lat + '&lon=' + request.lon + `&appid=${process.env.OPENWEATHERMAP_KEY}&units=metric`;
   fetch(url)
     .then(response => response.json())
     .then(data => {
