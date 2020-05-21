@@ -73,8 +73,8 @@ span {
 }
 
 div.mission-photo {
-  height: 300px;
   width: 300px;
+  margin-bottom: 2rem;
 }
 
 img {
@@ -88,6 +88,10 @@ img {
 
 .map-canvas {
   height: 350px;
+}
+
+#weather {
+  margin-top: 2rem;
 }
 
 tr.hover-row:hover {
