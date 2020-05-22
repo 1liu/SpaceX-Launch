@@ -96,6 +96,7 @@ img {
 
 tr.hover-row:hover {
   border: 3px solid black;
+  cursor: pointer;
 }
 
 @media (max-device-width: 768px) {
