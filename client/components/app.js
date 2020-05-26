@@ -27,6 +27,7 @@ class App {
   getData() {
     this.upcomingTable.loading();
     this.missionInfo.removeImg();
+    this.tableTitle('Upcoming Launches');
     $.ajax({
       url: '/api/upcoming',
       method: 'GET',
@@ -50,6 +51,7 @@ class App {
 
   getPastData() {
     this.upcomingTable.loading();
+    this.tableTitle('Past Launches');
     $.ajax({
       url: '/api/past',
       method: 'GET',
@@ -117,6 +119,11 @@ class App {
   launchClicked(data) {
     this.missionInfo.updateInfo(data);
     this.getPads(data.launch_site.site_id);
+  }
+
+  tableTitle(title) {
+    const tableTitle = document.querySelector('#schedule-title');
+    tableTitle.textContent = title;
   }
 
   start() {
