@@ -38,6 +38,7 @@ class App {
   }
 
   handleGetDataError(error) {
+    alert("Data fetching failed.Click the 'Upcoming Launches' button to fetching again.");
     console.error(error);
   }
 
@@ -61,6 +62,7 @@ class App {
   }
 
   handleGetPastDataError(error) {
+    alert("Data fetching failed. Click the 'Past Launches' button to fetching again.");
     console.error(error);
   }
 
@@ -109,7 +111,7 @@ class App {
   }
 
   handleGetWeatherError(error) {
-    console.log(error);
+    console.error(error);
   }
 
   handleGetWeatherSuccess(data) {
